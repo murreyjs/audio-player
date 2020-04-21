@@ -1,0 +1,13 @@
+<div class="audio-player-container">
+  <mat-form-field>
+    <mat-label>Select A Track</mat-label>
+    <mat-select [(ngModel)]="selectedTrack">
+      <mat-option *ngFor="let track of tracklist" [value]="track">
+        {{track.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button (click)="play()" [disabled]="!selectedTrack">Play</button>
+
+</div>
