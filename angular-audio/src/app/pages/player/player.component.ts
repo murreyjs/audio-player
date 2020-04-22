@@ -9,27 +9,41 @@ import {TracklistService} from '../services/tracklist.service';
 export class PlayerComponent implements OnInit {
   selectedTrack: any;
   tracklist: any;
+  isPlaying: boolean;
+  pTrack: any;
 
   constructor(
-    private tracklistService: TracklistService
+        private tracklistService: TracklistService
   ) { }
 
   ngOnInit(): void {
-    this.initTracks();
+        this.initTracks();
   }
 
   initTracks() {
-    this.tracklistService.getTracks()
-      .subscribe((res) => {
+        this.tracklistService.getTracks()
+        .subscribe((res) => {
         this.tracklist = res;
       });
+
+      this.isPlaying = false;
+      this.pTrack = new Audio();
   }
 
-  play() {
-    const track = new Audio();
-    track.src = this.selectedTrack.src;
-    track.load();
-    track.play();
+  
+  play(track: any){
+
+    if(this.isPlaying == true){
+    
+      this.pTrack = track;
+      track.src.pause();
   }
+
+this.pTrack = track;
+this.pTrack.src.load();
+this.pTrack.src.play();
+this.isPlaying = true;
+  }
+
 
 }
