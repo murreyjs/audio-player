@@ -11,6 +11,7 @@ export class PlayerComponent implements OnInit {
   tracklist: any;
   isPlaying: boolean;
   pTrack: any;
+ 
 
   constructor(
         private tracklistService: TracklistService
@@ -26,24 +27,29 @@ export class PlayerComponent implements OnInit {
         this.tracklist = res;
       });
 
-      this.isPlaying = false;
-      this.pTrack = new Audio();
+    this.isPlaying = false;
   }
 
   
   play(track: any){
 
-    if(this.isPlaying == true){
-    
-      this.pTrack = track;
-      track.src.pause();
-  }
-
-this.pTrack = track;
-this.pTrack.src.load();
-this.pTrack.src.play();
-this.isPlaying = true;
-  }
-
-
+if(this.isPlaying == true)
+{
+  this.pTrack.pause();
 }
+
+this.pTrack = new Audio();
+this.pTrack.src = track.src;
+this.pTrack.load();
+this.pTrack.play();
+this.isPlaying = true;
+  
+}
+
+pause()
+{
+  this.pTrack.pause();
+  this.isPlaying = false;
+}
+}
+
