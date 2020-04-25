@@ -1,10 +1,10 @@
 
 
 
-    <mat-selection-list>
-      <mat-list-item *ngFor="let track of tracklist" (click) = "play(track)">
+    <mat-selection-list class="selectList" [multiple]="false">
+      <mat-list-option *ngFor="let track of tracklist" (click) = "play(track)">
         {{track.title}}
-      </mat-list-item>
+      </mat-list-option>
     </mat-selection-list>
 
     <button mat-button (click)="pause()">
