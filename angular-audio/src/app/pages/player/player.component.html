@@ -1,8 +1,9 @@
 
 
+<input type = "text" ng-model = "searchBox">
 
     <mat-selection-list class="selectList" [multiple]="false">
-      <mat-list-option *ngFor="let track of tracklist" (click) = "play(track)">
+      <mat-list-option *ngFor="let track of tracklist | searchBox" (click) = "play(track)">
         {{track.title}}
       </mat-list-option>
     </mat-selection-list>
