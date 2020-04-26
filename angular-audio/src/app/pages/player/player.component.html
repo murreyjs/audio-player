@@ -1,6 +1,6 @@
 
-
-
+<input #sBox (change) = "filter(sBox.value)">
+<button mat-button (click) = "filter(sBox.value)"> Search </button>
     <mat-selection-list class="selectList" [multiple]="false">
       <mat-list-option *ngFor="let track of tracklist" (click) = "play(track)">
         {{track.title}}
@@ -8,6 +8,6 @@
     </mat-selection-list>
 
     <button mat-button (click)="pause()">
-        pause
+        {{ppText}}
     </button>
 

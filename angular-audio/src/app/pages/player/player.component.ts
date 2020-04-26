@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {TracklistService} from '../services/tracklist.service';
+import { element } from 'protractor';
+import { NgForOf } from '@angular/common';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-player',
@@ -11,6 +14,9 @@ export class PlayerComponent implements OnInit {
   tracklist: any;
   isPlaying: boolean;
   pTrack: any;
+  ppText: any;
+  tempTrack: any;
+  i: any;
  
 
   constructor(
@@ -33,6 +39,7 @@ export class PlayerComponent implements OnInit {
   
   play(track: any){
 
+    this.ppText ="pause";
 if(this.isPlaying == true)
 {
   this.pTrack.pause();
@@ -48,8 +55,32 @@ this.isPlaying = true;
 
 pause()
 {
+  if(this.isPlaying == true)
+  {
+  this.ppText = "play"
   this.pTrack.pause();
   this.isPlaying = false;
+  }
+  else if(this.isPlaying == false)
+  {
+    this.ppText = "pause";
+    this.pTrack.play();
+    this.isPlaying = true;
+  }
+}
+
+filter(temp: any)
+{
+
+
+  this.tracklist.forEach(function (track) {
+    
+    
+    
+  }); 
+
+
+
 }
 }
 
