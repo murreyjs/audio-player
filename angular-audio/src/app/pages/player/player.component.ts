@@ -11,76 +11,77 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 })
 export class PlayerComponent implements OnInit {
   selectedTrack: any;
-  tracklist: any;
+  trackList: any;
+  displayList: any;
+  searchText: string;
   isPlaying: boolean;
   pTrack: any;
-  ppText: any;
-  tempTrack: any;
-  i: any;
- 
+  hoverTrack: any;
 
   constructor(
-        private tracklistService: TracklistService
+    private tracklistService: TracklistService
   ) { }
 
   ngOnInit(): void {
-        this.initTracks();
+    this.initTracks();
   }
 
   initTracks() {
-        this.tracklistService.getTracks()
-        .subscribe((res) => {
-        this.tracklist = res;
-      });
-
+    this.tracklistService.getTracks()
+      .subscribe((res) => {
+        // set trackList and displayList equal to list of songs
+        this.trackList = res;
+        this.displayList = res;
+    });
     this.isPlaying = false;
   }
 
-  
-  play(track: any){
 
-    this.ppText ="pause";
-if(this.isPlaying == true)
-{
-  this.pTrack.pause();
-}
+  trackClick(track: any){
 
-this.pTrack = new Audio();
-this.pTrack.src = track.src;
-this.pTrack.load();
-this.pTrack.play();
-this.isPlaying = true;
-  
-}
+    // if track is currently playing
+    if (this.isPlaying) {
 
-pause()
-{
-  if(this.isPlaying == true)
-  {
-  this.ppText = "play"
-  this.pTrack.pause();
-  this.isPlaying = false;
+      // pause this.pTrack
+      this.pauseCurrentTrack();
+
+      // if a new track was selected, play that track
+      if (this.selectedTrack !== track) {
+        this.playTrack(track);
+      }
+    }
+    // if track is not currently playing, play new track
+    else {
+      this.playTrack(track);
+    }
   }
-  else if(this.isPlaying == false)
-  {
-    this.ppText = "pause";
+
+  pauseCurrentTrack() {
+    this.pTrack.pause();
+    this.isPlaying = false;
+  }
+
+  playTrack(track: any) {
+    this.pTrack = new Audio();
+    this.pTrack.src = track.src;
+    this.pTrack.load();
     this.pTrack.play();
     this.isPlaying = true;
+    this.selectedTrack = track;
   }
-}
 
-filter(temp: any)
-{
+  filter() {
+    this.displayList = this.trackList.filter(track => {
+      return this.checkSearchConditions(track);
+    });
+  }
 
-
-  this.tracklist.forEach(function (track) {
-    
-    
-    
-  }); 
-
-
-
-}
+  // returns true if the title, artist or src contain the searchText, or if searchText string is empty
+  checkSearchConditions(track) {
+    const isTitle = track.title.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
+    const isArtist = track.artist.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
+    const isSrc = track.src.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
+    return isTitle || isArtist || isSrc || (this.searchText === '');
+  }
 }
 

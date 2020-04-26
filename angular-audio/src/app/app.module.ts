@@ -8,6 +8,7 @@ import { PlayerComponent } from './pages/player/player.component';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

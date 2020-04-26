@@ -1,13 +1,27 @@
 
-<input #sBox (change) = "filter(sBox.value)">
-<button mat-button (click) = "filter(sBox.value)"> Search </button>
-    <mat-selection-list class="selectList" [multiple]="false">
-      <mat-list-option *ngFor="let track of tracklist" (click) = "play(track)">
-        {{track.title}}
-      </mat-list-option>
-    </mat-selection-list>
-
-    <button mat-button (click)="pause()">
-        {{ppText}}
+<div class="search-bar">
+  <mat-form-field class="example-form-field">
+    <mat-label>Search by Title</mat-label>
+    <input matInput type="text" [(ngModel)]="searchText" (input)="filter()">
+    <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText='';filter();">
+      <mat-icon>close</mat-icon>
     </button>
+  </mat-form-field>
+</div>
 
+<mat-selection-list [multiple]="false">
+  <mat-list-option *ngFor="let track of displayList" (mouseenter)="hoverTrack=track"
+                   (mouseleave)="hoverTrack=null">
+    <div style="display: inline">
+      <span class="mat-body-strong">
+        {{track.title}}
+      </span>
+      <span class="mat-small">
+        {{' ' + track.artist}}
+      </span>
+      <button mat-button *ngIf="hoverTrack === track" (click)="trackClick(track)" style="float:right">
+        {{(track === selectedTrack && this.isPlaying) ? 'pause' : 'play'}}
+      </button>
+    </div>
+  </mat-list-option>
+</mat-selection-list>
