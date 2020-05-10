@@ -19,9 +19,28 @@
       <span class="mat-small">
         {{' ' + track.artist}}
       </span>
-      <button mat-button *ngIf="hoverTrack === track" (click)="trackClick(track)" style="float:right">
-        {{(track === selectedTrack && this.isPlaying) ? 'pause' : 'play'}}
-      </button>
+      
+     
+
     </div>
-  </mat-list-option>
+ 
+
+  <button mat-button [matMenuTriggerFor]="menu1">...</button>
+  <mat-menu #menu1="matMenu" overlapTrigger="false">
+      <span>
+          <button mat-menu-item>Remove Song</button>
+          <button mat-menu-item>Add To Playlist</button>
+          <button mat-menu-item>View Artist</button>
+          <button mat-menu-item>View Album</button>
+      </span>
+ </mat-menu>
+
+</mat-list-option>
+
 </mat-selection-list>
+
+
+
+
+
+

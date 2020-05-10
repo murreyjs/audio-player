@@ -3,12 +3,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
 
 const modules = [
   MatButtonModule,
   MatSelectModule,
   MatListModule,
-  MatInputModule
+  MatInputModule,
+  MatMenuModule
 ];
 
 @NgModule({

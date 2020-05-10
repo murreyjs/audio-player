@@ -10,6 +10,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
+  
   selectedTrack: any;
   trackList: any;
   displayList: any;
@@ -17,6 +18,7 @@ export class PlayerComponent implements OnInit {
   isPlaying: boolean;
   pTrack: any;
   hoverTrack: any;
+
 
   constructor(
     private tracklistService: TracklistService
