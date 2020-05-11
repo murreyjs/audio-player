@@ -18,6 +18,10 @@ export class PlayerComponent implements OnInit {
   isPlaying: boolean;
   pTrack: any;
   hoverTrack: any;
+  oTrack: any;
+  ppButton: any;
+  loadedSong: any;
+  clickedButton: boolean;
 
 
   constructor(
@@ -36,6 +40,9 @@ export class PlayerComponent implements OnInit {
         this.displayList = res;
     });
     this.isPlaying = false;
+    this.ppButton = "play";
+    this.loadedSong = false;
+    this.clickedButton = false;
   }
 
 
@@ -64,6 +71,17 @@ export class PlayerComponent implements OnInit {
   }
 
   playTrack(track: any) {
+    
+    if(this.loadedSong == false){
+       this.loadedSong = true;
+    }
+    
+    if(this.clickedButton == true)
+    {
+      this.clickedButton = false;
+      return;
+    }
+
     if (this.pTrack && !this.pTrack.paused) {
       this.pTrack.pause();
     }
@@ -73,6 +91,7 @@ export class PlayerComponent implements OnInit {
     this.pTrack.play();
     this.isPlaying = true;
     this.selectedTrack = track;
+    this.ppButton = "pause";
   }
 
   filter() {
@@ -88,5 +107,48 @@ export class PlayerComponent implements OnInit {
     const isSrc = track.src.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
     return isTitle || isArtist || isSrc || (this.searchText === '');
   }
+
+  removeSong(sTrack)
+{
+  this.oTrack = sTrack;
+
 }
 
+addToPlaylist(sTrack)
+{
+  this.oTrack = sTrack;
+
+}
+
+viewArtist(sTrack)
+{
+  this.oTrack = sTrack;
+}
+
+viewAlbum(sTrack)
+{
+  this.oTrack = sTrack;
+}
+showpp()
+{
+  if(this.isPlaying == true)
+  {
+    this.ppButton = "play";
+    this.pTrack.pause();
+    this.isPlaying = false;
+  }
+  else if(this.isPlaying == false && this.loadedSong == true)
+  {
+    this.ppButton = "pause";
+    this.pTrack.play();
+    this.isPlaying = true;
+  }
+
+}
+
+oButton()
+{
+  this.clickedButton =true;
+}
+
+}
