@@ -10,7 +10,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
-  
+
   selectedTrack: any;
   trackList: any;
   displayList: any;
@@ -64,6 +64,9 @@ export class PlayerComponent implements OnInit {
   }
 
   playTrack(track: any) {
+    if (this.pTrack && !this.pTrack.paused) {
+      this.pTrack.pause();
+    }
     this.pTrack = new Audio();
     this.pTrack.src = track.src;
     this.pTrack.load();

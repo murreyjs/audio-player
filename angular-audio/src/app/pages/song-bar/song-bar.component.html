@@ -1,0 +1,6 @@
+
+<div class="slider-container">
+  {{positionDisplay}}
+    <mat-slider [(ngModel)]="position" (input)="timeChange($event)" min="0" [max]="duration"></mat-slider>
+  {{durationDisplay}}
+</div>

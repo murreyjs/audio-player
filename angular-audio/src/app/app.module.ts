@@ -8,12 +8,14 @@ import { PlayerComponent } from './pages/player/player.component';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { SongBarComponent } from './pages/song-bar/song-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerComponent
+    PlayerComponent,
+    SongBarComponent
   ],
   imports: [
     BrowserModule,

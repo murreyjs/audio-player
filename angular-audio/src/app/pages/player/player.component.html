@@ -10,34 +10,37 @@
 </div>
 
 <mat-selection-list [multiple]="false">
-  <mat-list-option *ngFor="let track of displayList" (mouseenter)="hoverTrack=track"
-                   (mouseleave)="hoverTrack=null">
-    <div style="display: inline">
-      <span class="mat-body-strong">
-        {{track.title}}
-      </span>
-      <span class="mat-small">
-        {{' ' + track.artist}}
-      </span>
-      
-     
 
-    </div>
- 
+    <mat-list-option *ngFor="let track of displayList" (mouseenter)="hoverTrack=track"
+                     (mouseleave)="hoverTrack=null" (click)="playTrack(track)">
+      <div>
+        <div class="song-option">
+          <span class="mat-body-strong">
+            {{track.title}}
+          </span>
+          <span class="mat-small">
+            {{' ' + track.artist}}
+          </span>
+        </div>
 
-  <button mat-button [matMenuTriggerFor]="menu1">...</button>
-  <mat-menu #menu1="matMenu" overlapTrigger="false">
-      <span>
-          <button mat-menu-item>Remove Song</button>
-          <button mat-menu-item>Add To Playlist</button>
-          <button mat-menu-item>View Artist</button>
-          <button mat-menu-item>View Album</button>
-      </span>
- </mat-menu>
+        <div class="song-option">
+          <button mat-button [matMenuTriggerFor]="menu1" style="float: right">...</button>
+          <mat-menu #menu1="matMenu" overlapTrigger="false" style="float: right">
+              <span>
+                  <button mat-menu-item>Remove Song</button>
+                  <button mat-menu-item>Add To Playlist</button>
+                  <button mat-menu-item>View Artist</button>
+                  <button mat-menu-item>View Album</button>
+              </span>
+          </mat-menu>
+        </div>
+      </div>
 
-</mat-list-option>
+      </mat-list-option>
 
 </mat-selection-list>
+
+<app-song-bar [track]="pTrack"></app-song-bar>
 
 
 
