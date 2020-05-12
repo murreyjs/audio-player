@@ -11,6 +11,7 @@ export class SongBarComponent implements OnChanges, OnInit {
   positionDisplay = '0:00';
   position: number;
   duration: number;
+  tLeft: number;
 
   constructor() {
   }
@@ -20,7 +21,7 @@ export class SongBarComponent implements OnChanges, OnInit {
 
   ngOnChanges(): void {
     if (this.track) {
-      this.track.onloadedmetadata = () => {
+        this.track.onloadedmetadata = () => {
         this.duration = this.track.duration;
         const length = Math.round(this.duration);
         const min = Math.floor(length / 60);
@@ -39,6 +40,12 @@ export class SongBarComponent implements OnChanges, OnInit {
     const min = Math.floor(time / 60);
     const sec = (time % 60) < 10 ? '0' + (time % 60) : (time  % 60);
     this.positionDisplay = min + ':' + sec;
+    this.tLeft = Math.round(this.duration) - time;
+    const m = Math.floor(this.tLeft/60);
+    const s = (this.tLeft % 60) < 10 ? '0' + (this.tLeft% 60) : (this.tLeft  % 60);
+    this.durationDisplay = m + ':' + s;
+     
+    
   }
 
   timeChange(time) {
@@ -46,7 +53,7 @@ export class SongBarComponent implements OnChanges, OnInit {
     this.track.currentTime = time.value;
     this.position = time.value;
     this.track.oncanplay = () => {
-      this.track.play();
+    this.track.play();
     };
   }
 
