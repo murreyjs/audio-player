@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TracklistService} from '../services/tracklist.service';
-import { element } from 'protractor';
-import { NgForOf } from '@angular/common';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import {TracklistService} from '../../services/tracklist.service';
+import {AddPlaylistDialogComponent} from '../../dialogs/add-playlist-dialog/add-playlist-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-player',
@@ -25,6 +24,7 @@ export class PlayerComponent implements OnInit {
 
 
   constructor(
+    public dialog: MatDialog,
     private tracklistService: TracklistService
   ) { }
 
@@ -40,7 +40,7 @@ export class PlayerComponent implements OnInit {
         this.displayList = res;
     });
     this.isPlaying = false;
-    this.ppButton = "play";
+    this.ppButton = 'play';
     this.loadedSong = false;
     this.clickedButton = false;
   }
@@ -71,13 +71,10 @@ export class PlayerComponent implements OnInit {
   }
 
   playTrack(track: any) {
-    
-    if(this.loadedSong == false){
+    if (this.loadedSong === false) {
        this.loadedSong = true;
     }
-    
-    if(this.clickedButton == true)
-    {
+    if (this.clickedButton === true) {
       this.clickedButton = false;
       return;
     }
@@ -91,7 +88,7 @@ export class PlayerComponent implements OnInit {
     this.pTrack.play();
     this.isPlaying = true;
     this.selectedTrack = track;
-    this.ppButton = "pause";
+    this.ppButton = 'pause';
   }
 
   filter() {
@@ -108,47 +105,48 @@ export class PlayerComponent implements OnInit {
     return isTitle || isArtist || isSrc || (this.searchText === '');
   }
 
-  removeSong(sTrack)
-{
-  this.oTrack = sTrack;
-
-}
-
-addToPlaylist(sTrack)
-{
-  this.oTrack = sTrack;
-
-}
-
-viewArtist(sTrack)
-{
-  this.oTrack = sTrack;
-}
-
-viewAlbum(sTrack)
-{
-  this.oTrack = sTrack;
-}
-showpp()
-{
-  if(this.isPlaying == true)
-  {
-    this.ppButton = "play";
-    this.pTrack.pause();
-    this.isPlaying = false;
-  }
-  else if(this.isPlaying == false && this.loadedSong == true)
-  {
-    this.ppButton = "pause";
-    this.pTrack.play();
-    this.isPlaying = true;
+  removeSong(sTrack) {
+    this.oTrack = sTrack;
   }
 
-}
+  addToPlaylist(sTrack) {
+    this.oTrack = sTrack;
+  }
 
-oButton()
-{
-  this.clickedButton =true;
-}
+  viewArtist(sTrack) {
+    this.oTrack = sTrack;
+  }
+
+  viewAlbum(sTrack) {
+    this.oTrack = sTrack;
+  }
+
+  openPlaylistDialog() {
+      const dialogRef = this.dialog.open(AddPlaylistDialogComponent, {
+        width: '250px',
+        data: {}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+  }
+
+  showpp() {
+    if (this.isPlaying === true) {
+      this.ppButton = 'play';
+      this.pTrack.pause();
+      this.isPlaying = false;
+    }
+    else if (this.isPlaying === false && this.loadedSong === true) {
+      this.ppButton = 'pause';
+      this.pTrack.play();
+      this.isPlaying = true;
+    }
+  }
+
+  oButton() {
+    this.clickedButton = true;
+  }
 
 }

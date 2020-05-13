@@ -9,13 +9,15 @@ import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { SongBarComponent } from './pages/song-bar/song-bar.component';
+import { SongBarComponent } from './components/song-bar/song-bar.component';
+import { AddPlaylistDialogComponent } from './dialogs/add-playlist-dialog/add-playlist-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    SongBarComponent
+    SongBarComponent,
+    AddPlaylistDialogComponent
   ],
   imports: [
     BrowserModule,

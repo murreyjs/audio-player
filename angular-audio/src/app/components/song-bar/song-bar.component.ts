@@ -44,8 +44,6 @@ export class SongBarComponent implements OnChanges, OnInit {
     const m = Math.floor(this.tLeft/60);
     const s = (this.tLeft % 60) < 10 ? '0' + (this.tLeft% 60) : (this.tLeft  % 60);
     this.durationDisplay = m + ':' + s;
-     
-    
   }
 
   timeChange(time) {
