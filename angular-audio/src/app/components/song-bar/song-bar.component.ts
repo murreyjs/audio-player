@@ -47,11 +47,9 @@ export class SongBarComponent implements OnChanges, OnInit {
   }
 
   timeChange(time) {
-    this.track.pause();
     this.track.currentTime = time.value;
     this.position = time.value;
     this.track.oncanplay = () => {
-    this.track.play();
     };
   }
 
