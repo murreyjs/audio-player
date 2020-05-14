@@ -11,13 +11,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { SongBarComponent } from './components/song-bar/song-bar.component';
 import { AddPlaylistDialogComponent } from './dialogs/add-playlist-dialog/add-playlist-dialog.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { PlaylistsComponent } from './pages/playlists/playlists.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
     SongBarComponent,
-    AddPlaylistDialogComponent
+    AddPlaylistDialogComponent,
+    MainPageComponent,
+    PlaylistsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PlayerComponent } from './pages/player/player.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
 
 
 const routes: Routes = [
-  {path: '', component: PlayerComponent}
+  {path: '', component: MainPageComponent}
 ];
 
 @NgModule({
