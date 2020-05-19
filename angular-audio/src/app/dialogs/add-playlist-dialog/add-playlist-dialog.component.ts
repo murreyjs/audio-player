@@ -13,9 +13,14 @@ export class AddPlaylistDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
   }
 
-  onNoClick(): void {
+  oncreate(): void {
+    this.dialogRef.close();
+  }
+  
+  oncancel(): void {
     this.dialogRef.close();
   }
 

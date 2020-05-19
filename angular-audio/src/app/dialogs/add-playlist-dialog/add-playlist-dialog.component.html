@@ -1,11 +1,19 @@
   <div>
-    <h1 mat-dialog-title>Enter the Name of Your Playlist</h1>
-  <div>
+    <h1 mat-dialog-title> Enter the Name of Your Playlist</h1>
+  </div>
 
   <div mat-dialog-content>
     <input matInput type="text">
   </div>
 
-  <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Cancel</button>
+  <div style="float: right;">
+    <div mat-dialog-actions>
+      <button mat-button (click)="oncancel()">Cancel</button>
+    </div>
+  </div>
+  
+  <div style="float: right;">
+    <div mat-dialog-actions>
+      <button mat-button (click)="oncreate()">Create</button>
+    </div>
   </div>

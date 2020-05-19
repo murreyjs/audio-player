@@ -123,7 +123,7 @@ export class PlayerComponent implements OnInit {
 
   openPlaylistDialog() {
       const dialogRef = this.dialog.open(AddPlaylistDialogComponent, {
-        width: '250px',
+        width: '400px',
         data: {}
       });
 

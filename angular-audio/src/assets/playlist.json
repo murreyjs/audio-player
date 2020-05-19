@@ -1,0 +1,22 @@
+[
+  {
+  "playlistName": "Jonah's Playlist",
+  "owner":{
+      "id": 0,
+      "username": "user1"
+  },
+  "tracklist": [
+    {
+      "title": "Baile",
+      "artist": "VCTRE",
+      "src": "assets/VCTRE - Toad Juice - 04 Baile.wav"
+    },
+    
+    {
+      "title": "Lean Back",
+      "artist": "Snuffy x REBRTH",
+      "src": "assets/Snuffy x REBRTH - Lean Back.wav"
+    }
+  ]
+  }
+]

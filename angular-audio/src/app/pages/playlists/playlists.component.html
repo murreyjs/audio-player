@@ -1,1 +1,23 @@
-<p>playlists works!</p>
+<mat-selection-list [multiple]="false">
+
+    <mat-list-option *ngFor="let plist of playlist">
+      <div>
+        <div class="inline-half">
+          <span class="mat-body-strong">
+            {{plist.playlistName}}
+          </span>
+        </div>
+
+        <div class="inline-half">
+          <button mat-button [matMenuTriggerFor]="menu1" style="float: right">...</button>
+          <mat-menu #menu1="matMenu" overlapTrigger="false" style="float: right">
+              <span>
+                  <button mat-menu-item> Remove Playlist </button>
+              </span>
+          </mat-menu>
+        </div>
+      </div>
+
+      </mat-list-option>
+
+</mat-selection-list>
