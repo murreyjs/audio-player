@@ -7,20 +7,21 @@ import {MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./add-playlist-dialog.component.scss']
 })
 export class AddPlaylistDialogComponent implements OnInit {
+  fs: any;
 
   constructor(
     public dialogRef: MatDialogRef<AddPlaylistDialogComponent>
   ) {}
 
   ngOnInit(): void {
-
+    this.fs = require('fs');
   }
 
-  oncreate(): void {
+  onCreate(): void {
     this.dialogRef.close();
   }
-  
-  oncancel(): void {
+
+  onCancel(): void {
     this.dialogRef.close();
   }
 
