@@ -13,6 +13,7 @@ import { SongBarComponent } from './components/song-bar/song-bar.component';
 import { AddPlaylistDialogComponent } from './dialogs/add-playlist-dialog/add-playlist-dialog.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { PlaylistsComponent } from './pages/playlists/playlists.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PlaylistsComponent } from './pages/playlists/playlists.component';
     SongBarComponent,
     AddPlaylistDialogComponent,
     MainPageComponent,
-    PlaylistsComponent
+    PlaylistsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
