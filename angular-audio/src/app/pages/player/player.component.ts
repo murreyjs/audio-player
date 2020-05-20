@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {TracklistService} from '../../services/tracklist.service';
 import {AddPlaylistDialogComponent} from '../../dialogs/add-playlist-dialog/add-playlist-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
-import { LoginComponent } from 'src/app/login/login.component';
 
 @Component({
   selector: 'app-player',
@@ -41,7 +40,7 @@ export class PlayerComponent implements OnInit {
         this.displayList = res;
     });
     this.isPlaying = false;
-    this.ppButton = 'play';
+    this.ppButton = '';
     this.loadedSong = false;
     this.clickedButton = false;
   }
@@ -133,19 +132,9 @@ export class PlayerComponent implements OnInit {
       });
   }
 
-  openloginDialog() {
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '400px',
-      data: {}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-}
   showpp() {
     if (this.isPlaying === true) {
-      this.ppButton = 'play';
+      this.ppButton = 'play_arrow';
       this.pTrack.pause();
       this.isPlaying = false;
     }

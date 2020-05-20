@@ -14,6 +14,9 @@ import { AddPlaylistDialogComponent } from './dialogs/add-playlist-dialog/add-pl
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { PlaylistsComponent } from './pages/playlists/playlists.component';
 import { LoginComponent } from './login/login.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import {routingComponents} from  './app-routing.module'
 
 @NgModule({
   declarations: [
@@ -23,7 +26,11 @@ import { LoginComponent } from './login/login.component';
     AddPlaylistDialogComponent,
     MainPageComponent,
     PlaylistsComponent,
-    LoginComponent
+    LoginComponent,
+    HomepageComponent,
+    CreateAccountComponent,
+    routingComponents
+
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

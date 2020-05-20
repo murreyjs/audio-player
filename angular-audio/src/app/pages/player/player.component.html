@@ -10,18 +10,12 @@
   </div>
 
   <div class="inline-half">
-   
     <button mat-button (click)="openPlaylistDialog()" style="float: right">
       <mat-icon>playlist_add</mat-icon>
       New Playlist
     </button>
-    
-    <button mat-button (click)="openloginDialog()" style="float: right">
-      Log In
-    </button>
-
-</div>
-
+  </div>
+  
 </div>
 
 <mat-selection-list [multiple]="false">
@@ -57,6 +51,11 @@
 
 <app-song-bar [track]="pTrack"></app-song-bar>
 
-<div class = "ppLocation">
-<button mat-button class = "ppB" (click)="showpp()"> {{ppButton}} </button>
-</div>
+
+  <div class = "ppLocation">
+    <button mat-button class = "ppB" (click)="showpp()"> 
+      <mat-icon>
+          {{ppButton}} 
+      </mat-icon>
+    </button>
+  </div>

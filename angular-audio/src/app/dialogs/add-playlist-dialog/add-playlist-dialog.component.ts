@@ -3,8 +3,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-playlist-dialog',
-  templateUrl: './add-playlist-dialog.component.html',
-  styleUrls: ['./add-playlist-dialog.component.scss']
+  templateUrl: './add-playlist-dialog.component.html'
 })
 export class AddPlaylistDialogComponent implements OnInit {
   fs: any;
@@ -14,7 +13,7 @@ export class AddPlaylistDialogComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.fs = require('fs');
+   // this.fs = require('fs');
   }
 
   onCreate(): void {
