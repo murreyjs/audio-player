@@ -4,14 +4,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class playlistService {
+export class UserService {
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getplaylist() {
-    return this.http.get('assets/playlist.json');
+  getUsers() {
+    return this.http.get('assets/users.json');
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TracklistService} from '../../services/tracklist.service';
+import { TracksService } from '../../services/tracks.service';
 import {AddPlaylistDialogComponent} from '../../dialogs/add-playlist-dialog/add-playlist-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 
@@ -25,7 +25,7 @@ export class PlayerComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private tracklistService: TracklistService
+    private tracksService: TracksService
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +33,7 @@ export class PlayerComponent implements OnInit {
   }
 
   initTracks() {
-    this.tracklistService.getTracks()
+    this.tracksService.getTracks()
       .subscribe((res) => {
         // set trackList and displayList equal to list of songs
         this.trackList = res;

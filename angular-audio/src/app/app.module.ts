@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,9 +13,9 @@ import { SongBarComponent } from './components/song-bar/song-bar.component';
 import { AddPlaylistDialogComponent } from './dialogs/add-playlist-dialog/add-playlist-dialog.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { PlaylistsComponent } from './pages/playlists/playlists.component';
-import { LoginComponent } from './login/login.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { CreateAccountComponent } from './create-account/create-account.component';
+import { LoginComponent } from './dialogs/login/login.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { CreateAccountComponent } from './dialogs/create-account/create-account.component';
 import {routingComponents} from  './app-routing.module'
 
 @NgModule({
@@ -41,6 +41,7 @@ import {routingComponents} from  './app-routing.module'
     HttpClientModule,
     MatFormFieldModule,
     MatIconModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {playlistService} from '../../services/playlist.service';
-import { AppModule } from 'src/app/app.module';
+import { TracksService } from '../../services/tracks.service';
 
 @Component({
   selector: 'app-playlists',
@@ -10,15 +9,15 @@ import { AppModule } from 'src/app/app.module';
 export class PlaylistsComponent implements OnInit {
   playlist: any;
   name: any;
-  constructor(private PlaylistService: playlistService){}
+  constructor(private tracksService: TracksService){}
 
   ngOnInit(): void {
     this.initTracks();
   }
 
- 
+
   initTracks() {
-    this.PlaylistService.getplaylist()
+    this.tracksService.getPlaylist()
       .subscribe((res) => {
         // read in playlist file
         this.playlist = res;

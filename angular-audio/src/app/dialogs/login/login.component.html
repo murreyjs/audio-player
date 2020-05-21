@@ -1,0 +1,19 @@
+<div mat-dialog-content>
+  <form [formGroup]="loginForm">
+    <div>
+      <label for="username">Username</label>
+      <input matInput id="username" formControlName="username">
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input matInput id="password" formControlName="password">
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <div style="float: right;">
+    <button mat-button (click)="login()">Login</button>
+  </div>
+</div>
+
