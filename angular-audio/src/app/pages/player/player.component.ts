@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TracksService } from '../../services/tracks.service';
 import {AddPlaylistDialogComponent} from '../../dialogs/add-playlist-dialog/add-playlist-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-player',
@@ -25,8 +26,14 @@ export class PlayerComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private tracksService: TracksService
-  ) { }
+    private tracksService: TracksService,
+    location: PlatformLocation
+    )
+  {
+    location.onPopState(() => {
+    this.pTrack.pause();
+  });
+}
 
   ngOnInit(): void {
     this.initTracks();

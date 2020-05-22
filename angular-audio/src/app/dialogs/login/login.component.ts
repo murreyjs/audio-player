@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  Authenticated: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
   ) {
     // if currentUser already logged in, route to home
     if (this.authenticationService.isAuthenticated) {
+      this.dialogRef.close();
       this.router.navigate(['main-paige']);
     }
   }
@@ -34,10 +36,16 @@ export class LoginComponent implements OnInit {
   login() {
     const username = this.loginForm.controls.username.value;
     const password = this.loginForm.controls.password.value;
-    this.authenticationService.login(username, password);
-    if (this.authenticationService.isAuthenticated) {
-      this.dialogRef.close();
+    this.authenticationService.login(username,password);
+    // Wait for login function to finish
+    setTimeout(()=>{
+      if (this.authenticationService.isAuthenticated) {
+        this.dialogRef.close();
+        this.router.navigate(['main-paige']);
+      }
+      else {
+        alert("Incorrect Password");
+      }
+      }, 10);
     }
   }
-
-}

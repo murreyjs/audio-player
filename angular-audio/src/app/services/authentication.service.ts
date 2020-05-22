@@ -23,7 +23,6 @@ export class AuthenticationService {
         listUsername.forEach(user => {
           if (user.password === password) {
             this.isAuthenticated = true;
-            this.router.navigate(['main-paige']);
           }
         });
       });
