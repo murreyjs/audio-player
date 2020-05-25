@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CONSTANTS } from "../app.constants";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TracksService {
+  baseUrl = CONSTANTS.BASE_URL;
 
   constructor(
     private http: HttpClient
@@ -15,7 +17,7 @@ export class TracksService {
   }
 
   getTracks() {
-    return this.http.get('assets/tracklist.json');
+    return this.http.get(this.baseUrl + "/tracks");
   }
 
 }
