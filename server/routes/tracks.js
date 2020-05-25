@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Track = require('../models/Track')
+const Track = require('../models/Track');
 
 // Get all tracks
 router.get('/', async (req, res) => {
