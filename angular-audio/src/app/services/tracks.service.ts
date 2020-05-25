@@ -20,4 +20,8 @@ export class TracksService {
     return this.http.get(this.baseUrl + "/tracks");
   }
 
+  createTrack(track) {
+    return this.http.post(this.baseUrl + "/tracks", track);
+  }
+
 }
