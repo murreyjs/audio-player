@@ -42,6 +42,7 @@ export class PlayerComponent implements OnInit {
   initTracks() {
     this.tracksService.getTracks()
       .subscribe((res) => {
+        console.log(res);
         // set trackList and displayList equal to list of songs
         this.trackList = res;
         this.displayList = res;
