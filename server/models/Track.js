@@ -13,6 +13,6 @@ const TrackSchema = mongoose.Schema({
     type: mongoose.Schema.Types.String,
     required: true
   },
-});
+}, {collection: 'tracks'});
 
-module.exports = mongoose.model('Track', TrackSchema);
+module.exports = mongoose.model('track', TrackSchema);

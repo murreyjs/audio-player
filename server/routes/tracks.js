@@ -6,6 +6,7 @@ const Track = require('../models/Track');
 router.get('/', async (req, res) => {
   try {
     const tracks = await Track.find();
+    console.log(tracks);
     res.json(tracks);
   }
   catch (err) {

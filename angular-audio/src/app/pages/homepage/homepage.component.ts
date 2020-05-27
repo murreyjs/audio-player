@@ -15,7 +15,7 @@ export class HomepageComponent implements OnInit {
 
 
 
-  constructor( 
+  constructor(
     public dialog: MatDialog,
     private authenticationService: AuthenticationService,
     private router: Router
